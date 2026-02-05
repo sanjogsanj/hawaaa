@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sanjana 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-serif;}
+
+body{
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+}
+
+/* SLIDER */
+.slider{
+display:flex;
+width:700vw;
+height:100vh;
+transition:transform .9s ease;
+}
+.slide{
+width:100vw;
+height:100vh;
+position:relative;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:#fff;
+overflow:hidden;
+padding:20px;
+}
+
+/* COLORS */
+.s1{background:linear-gradient(135deg,#ff758c,#ff7eb3);}
+.s2{background:linear-gradient(135deg,#43cea2,#185a9d);}
+.s3{background:linear-gradient(135deg,#f7971e,#ffd200);}
+.s4{background:linear-gradient(135deg,#667eea,#764ba2);}
+.s5{background:linear-gradient(135deg,#ff9966,#ff5e62);}
+.s6{background:linear-gradient(135deg,#56ab2f,#a8e063);}
+.s7{background:linear-gradient(135deg,#614385,#516395);}
+
+/* TEXT */
+h1{
+font-family:'Pacifico',cursive;
+font-size:2.4rem;
+margin-bottom:15px;
+z-index:2;
+}
+p{
+font-size:1.05rem;
+line-height:1.6;
+max-width:320px;
+z-index:2;
+opacity:0;
+transform:translateY(20px) scale(0.9);
+}
+
+/* ANIMATION CLASSES */
+.bounceFade{
+animation:bounceFade 1s forwards;
+}
+@keyframes bounceFade{
+0%{opacity:0;transform:translateY(20px) scale(0.9);}
+60%{opacity:1;transform:translateY(-10px) scale(1.05);}
+80%{transform:translateY(5px) scale(0.98);}
+100%{opacity:1;transform:translateY(0) scale(1);}
+}
+
+/* BUTTON */
+button{
+margin-top:25px;
+padding:12px 26px;
+border:none;
+border-radius:30px;
+font-weight:600;
+cursor:pointer;
+z-index:2;
+opacity:0;
+transform:translateY(20px) scale(0.9);
+transition:all .5s;
+}
+
+/* DOTS */
+.nav{
+position:fixed;
+bottom:20px;
+width:100%;
+display:flex;
+justify-content:center;
+gap:8px;
+z-index:10;
+}
+.dot{
+width:10px;height:10px;border-radius:50%;
+background:rgba(255,255,255,.4);
+}
+.dot.active{background:#fff;}
+
+/* ❤️ HEART BACKGROUND */
+.heart{
+position:absolute;
+font-size:20px;
+animation:heartFloat linear infinite;
+opacity:.7;
+}
+@keyframes heartFloat{
+to{transform:translateY(-120vh);}
+}
+
+/* 🎈 BALLOONS WITH SPARKLE */
+.balloon{
+position:absolute;
+bottom:-120px;
+width:40px;
+height:55px;
+border-radius:50%;
+animation:balloon linear infinite;
+overflow:hidden;
+}
+.balloon::after{
+content:"";
+position:absolute;
+bottom:-18px;
+left:50%;
+width:2px;
+height:20px;
+background:#fff;
+transform:translateX(-50%);
+}
+
+/* BALLOON COLORS */
+.b1{background:#ff6f91;}
+.b2{background:#ffc75f;}
+.b3{background:#845ec2;}
+.b4{background:#00c9a7;}
+.b5{background:#f9f871;}
+
+/* BALLOON SPARKLE */
+.sparkle{
+position:absolute;
+width:4px;
+height:4px;
+background:#fff;
+border-radius:50%;
+opacity:0;
+animation:twinkle 1s infinite;
+}
+@keyframes twinkle{
+0%,100%{opacity:0;}
+50%{opacity:1;transform:translateY(-5px);}
+}
+
+@keyframes balloon{
+to{transform:translateY(-120vh);}
+}
+
+/* 🎆 FIREWORKS */
+.firework{
+position:absolute;
+width:6px;
+height:6px;
+border-radius:50%;
+background:white;
+animation:boom 1.2s infinite;
+}
+@keyframes boom{
+0%{transform:scale(0);opacity:1;}
+100%{transform:scale(15);opacity:0;}
+}
+
+/* 🌈 TYPEWRITER + SPARKLE + BOUNCE */
+@keyframes typing {
+from { width: 0; }
+to { width: 100%; }
+}
+@keyframes blink {
+50% { border-color: transparent; }
+}
+@keyframes gradientMove {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+@keyframes bounceName {
+0%,100% { transform: translateY(0); }
+50% { transform: translateY(-10px); }
+}
+
+.name {
+font-family:'Pacifico',cursive;
+font-size:2.6rem;
+background: linear-gradient(90deg, #ff5e62, #ff9966, #f9f871, #43cea2, #845ec2);
+background-size: 200% 200%;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+animation: gradientMove 3s ease infinite, typing 3s steps(30) 1 forwards, blink 0.7s step-end infinite, bounceName 2s ease-in-out infinite;
+white-space: nowrap;
+overflow: hidden;
+border-right: 3px solid #fff;
+width:0;
+display:inline-block;
+margin-bottom:15px;
+}
+
+/* ❤️ FULL PAGE MESSAGE FIXED SCROLL */
+#messagePage{
+display:none;
+position:fixed;
+top:0;left:0;width:100%;height:100%;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+color:#fff;
+padding:20px;
+text-align:center;
+z-index:20;
+overflow-y:auto;
+}
+#messageContent{
+max-width:600px;
+margin:50px auto 30px;
+text-align:center;
+}
+#messagePage h1{
+font-size:2rem;
+font-family:'Pacifico',cursive;
+margin-bottom:20px;
+}
+#messagePage p{
+font-size:1.1rem;
+line-height:1.6;
+white-space:pre-line;
+}
+#closeMsg{
+background:#fff;
+color:#ff5e62;
+font-weight:bold;
+padding:12px 25px;
+border-radius:30px;
+border:none;
+cursor:pointer;
+font-size:1rem;
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+}
+
+/* SHOW BUTTONS & TEXT */
+button.show{opacity:1;transform:translateY(0) scale(1);}
+p.show{opacity:1;transform:translateY(0) scale(1);}
+h1.show{opacity:1;transform:translateY(0) scale(1);}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 BACKGROUND MUSIC -->
+<button id="playBtn" onclick="playMusic()" style="
+  display:block;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  z-index:99999;
+  padding:15px 25px;
+  font-size:18px;
+  opacity:1 !important;
+">
+  ▶ Play Music
+</button>
+
+<audio id="bgMusic" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  function playMusic() {
+    document.getElementById("bgMusic").play();
+    document.getElementById("playBtn").style.display = "none";
+  }
+</script>
+
+
+
+<div class="slider" id="slider">
+
+<div class="slide s1">
+<h1>🎉 Happy Birthday Dear! 🎉</h1>
+<p>Today is a very special day 💖</p>
+<button class="next">Next ➡️</button>
+</div>
+
+<div class="slide s2">
+<h1 class="name">Sanjana Prajapati</h1>
+<p>Happy 16th Birthday 🥳<br>6 February ✨</p>
+<button class="next">Next ➡️</button>
+</div>
+
+<div class="slide s3">
+<h1>💖 Best Friend</h1>
+<p>You are not just a friend,<br>you are my best friend🤥 🤍</p>
+<button class="next">Next ➡️</button>
+</div>
+
+<div class="slide s4">
+<h1>🌸 Blessings</h1>
+<p>May God bless you with happiness,<br>health & success ✨</p>
+<button class="next">Next ➡️</button>
+</div>
+
+<div class="slide s5">
+<h1>🌈 Dreams</h1>
+<p>May all your dreams come true👩🏻‍⚕️ 💕</p>
+<button class="next">Next ➡️</button>
+</div>
+
+<div class="slide s6">
+<h1>🤍 From Me</h1>
+<p>
+Please always smile 😊<br><br>
+"And don’t fight regularly with me upon small things 😅💖"
+</p>
+<button class="next">Next ➡️</button>
+</div>
+
+<div class="slide s7">
+<h1>🎆 Happy Birthday 🎆</h1>
+<p>Stay happy & blessed always 💖</p>
+<button onclick="showMessage()">Read 🎁</button>
+</div>
+
+</div>
+
+<div class="nav" id="nav"></div>
+
+<!-- 🎉 FULL PAGE MESSAGE -->
+<div id="messagePage">
+<div id="messageContent">
+<h1>Happy Birthday 🥳🎂🥳 Sanjana Prajapati</h1>
+<h2>
+The day you came into my life I was not really much attached to you, but day by day you became close to my heart. And now you are truly my BEST FRIEND 🤥. I wish I could remove some of the pain from your life which you are bearing alone. But you're always welcome 🤗. You can talk anytime you want to talk, especially those things which you can't say to others. And this year may all your dreams come true. Don't fight with me regularly and don't be sad over small things. Once again, Happy Birthday 🎈🎂🎈 Sanjana.
+</h2>
+</div>
+<button id="closeMsg" onclick="closeMessage()">Close ✖️</button>
+</div>
+
+<script>
+let index=0;
+const slider=document.getElementById("slider");
+const slides=document.querySelectorAll(".slide");
+const nav=document.getElementById("nav");
+const music=document.getElementById("bgm");
+const messagePage=document.getElementById("messagePage");
+
+/* DOTS */
+slides.forEach((_,i)=>{
+let d=document.createElement("div");
+d.className="dot"+(i===0?" active":"");
+nav.appendChild(d);
+});
+
+/* MUSIC START ON FIRST TAP */
+document.body.addEventListener("click",()=>music.play(),{once:true});
+
+/* NEXT */
+document.querySelectorAll(".next").forEach(b=>b.onclick=next);
+function next(){if(index<slides.length-1){index++;update();}}
+function update(){
+slider.style.transform=`translateX(-${index*100}vw)`;
+document.querySelectorAll(".dot").forEach((d,i)=>d.classList.toggle("active",i===index));
+
+/* Animate text */
+const texts=slides[index].querySelectorAll("p,button,h1:not(.name)");
+texts.forEach((el,i)=>{
+setTimeout(()=>{
+el.classList.add("show");
+},i*200);
+});
+
+if(index===6)fireworks();
+}
+
+/* ❤️ HEARTS */
+for(let i=0;i<40;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerText="💖";
+h.style.left=Math.random()*100+"vw";
+h.style.bottom="-20px";
+h.style.animationDuration=4+Math.random()*4+"s";
+document.body.appendChild(h);
+}
+
+/* 🎈 BALLOONS WITH SPARKLES */
+slides.forEach(s=>{
+for(let i=0;i<6;i++){
+let b=document.createElement("div");
+b.className="balloon b"+((i%5)+1);
+b.style.left=Math.random()*100+"%";
+b.style.animationDuration=6+Math.random()*6+"s";
+s.appendChild(b);
+
+/* ADD SPARKLES */
+for(let j=0;j<4;j++){
+let sp=document.createElement("div");
+sp.className="sparkle";
+sp.style.left=Math.random()*100+"%";
+sp.style.top=Math.random()*100+"%";
+sp.style.animationDuration=(0.5+Math.random()*1.5)+"s";
+b.appendChild(sp);
+}
+}
+});
+
+/* 🎆 FIREWORKS */
+function fireworks(){
+for(let i=0;i<15;i++){
+let f=document.createElement("div");
+f.className="firework";
+f.style.left=Math.random()*100+"vw";
+f.style.top=Math.random()*100+"vh";
+document.body.appendChild(f);
+setTimeout(()=>f.remove(),1200);
+}
+}
+
+/* SHOW MESSAGE */
+function showMessage(){
+messagePage.style.display="block";
+messagePage.scrollTop = 0;
+}
+/* 🎵 MUSIC PLAY (MOBILE SAFE) */
+function startMusic(){
+  music.volume = 0.6;
+  music.play().catch(err=>console.log(err));
+}
+/* CLOSE MESSAGE */
+function closeMessage(){
+messagePage.style.display="none";
+}
+
+/* Trigger first slide text animations */
+update();
+
+/* SWIPE */
+let sx=0;
+addEventListener("touchstart",e=>sx=e.touches[0].clientX);
+addEventListener("touchend",e=>{
+let ex=e.changedTouches[0].clientX;
+if(sx-ex>50)next();
+});
+</script>
+
+</body>
+</html>
